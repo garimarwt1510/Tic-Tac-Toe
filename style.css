@@ -5,29 +5,30 @@
 
 
 body{
-    background:#f1d38a ;
+    background: #f1d38a ;
     
 }
 #heading{
-    margin: 2rem;
-    font-size: 40px;
-    color: #f1d38a;
+    font-family: 'Fredoka One', 'Arial Rounded MT Bold', sans-serif;
+    font-size: 64px;
     font-weight: bold;
-    background-color: #f08b74;
-    display: inline-block;
-    padding: 10px;
-    border: 1px solid white;
-    border-radius:50px;
-    box-shadow: 0 4px 6px -1px rgb(168, 165, 165);
-}
+    color: #5e9cf4;
+     -webkit-text-stroke: 4px #206cb9;
+     paint-order: stroke fill;
+     text-shadow: 0px 4px 4px rgba(74, 46, 31, 0.3);
+    letter-spacing: 1px;
+    text-transform: none;
+    margin: 2rem;
+  }
+
 .container{
     height: 400px;
     width:400px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:#6ca6d0 ;
-    border: 1px solid white;
+    background-color:#f97b59;
+    border: 15px solid #5e9cf4;
     border-radius: 20%;
     flex-wrap: wrap;
     box-shadow: 0 4px 6px -1px gray;
@@ -40,9 +41,21 @@ width:80px;
 margin: 0.5rem;
 border: none;
 border-radius: 20%;
-color:rgb(239, 244, 243);
-background: #f08b74;
+background: #f1d38a ;
 
+
+}
+
+#reset{
+    background-color: #f97b59;
+    color:#f1d38a;
+    display: inline-block;
+    font-size: 25px;
+    border: 1px solid rgb(255, 91, 58);
+    border-radius: 30px;
+    font-weight: bold;
+    margin: 1rem;
+    padding: 0.5rem;
 
 }
 @media(max-width: 412px){
@@ -51,4 +64,5 @@ background: #f08b74;
     .btn{width:60px;
         height:60px;}
     #heading{ font-size: 30px;}
+    #reset{font-size: 15px;}
 }
