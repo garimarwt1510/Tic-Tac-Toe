@@ -8,12 +8,25 @@ body{
     background: #f1d38a ;
     
 }
+#start-btn{
+color: #f1d38a;
+display: inline-block;
+justify-content: center;
+align-items: center;
+border: 1px solid rgb(237, 88, 88) ;
+border-radius: 30px;
+cursor: pointer;
+background-color:#f97b59 ;
+font-size: 30px;
+padding: 9px;
+margin: 20%;
+}
 #heading{
     font-family: 'Fredoka One', 'Arial Rounded MT Bold', sans-serif;
     font-size: 64px;
     font-weight: bold;
-    color: #5e9cf4;
-     -webkit-text-stroke: 4px #206cb9;
+    color: #5eb8f4;
+     -webkit-text-stroke: 4px #5fa8f1;
      paint-order: stroke fill;
      text-shadow: 0px 4px 4px rgba(74, 46, 31, 0.3);
     letter-spacing: 1px;
@@ -28,10 +41,11 @@ body{
     justify-content: center;
     align-items: center;
     background-color:#f97b59;
-    border: 15px solid #5e9cf4;
-    border-radius: 20%;
+    border: 15px solid #5eb8f4;
+    box-shadow: inset 0 0 10px  rgba(0, 0, 0, 0.3);
+ border-radius: 20%;
     flex-wrap: wrap;
-    box-shadow: 0 4px 6px -1px gray;
+
     max-width: 100%;
 }
 
@@ -42,7 +56,7 @@ margin: 0.5rem;
 border: none;
 border-radius: 20%;
 background: #f1d38a ;
-
+vertical-align: top;
 
 }
 
@@ -51,13 +65,16 @@ background: #f1d38a ;
     color:#f1d38a;
     display: inline-block;
     font-size: 25px;
+    cursor: pointer;
     border: 1px solid rgb(255, 91, 58);
+    box-shadow: 0 2px 10px rgb(253, 201, 88);
     border-radius: 30px;
     font-weight: bold;
     margin: 1rem;
     padding: 0.5rem;
 
 }
+
 @media(max-width: 412px){
     .container{width:300px;
     height:300px}
