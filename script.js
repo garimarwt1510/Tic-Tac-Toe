@@ -59,10 +59,7 @@ for(let pattern of win){
         win_msg.innerText="Winner";
         diabled();
     
-}
-       else{
-           win_msg.innerText="Game Draw !";
-}
+    }
 
 }
 }
