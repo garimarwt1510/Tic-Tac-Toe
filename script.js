@@ -56,9 +56,12 @@ for(let pattern of win){
    if(pos1 !="" && pos2 !=""&& pos3 !=""){
     if(pos1==pos2 && pos2==pos3){
         msg.classList.remove("hide");
+        win_msg.innerText="Winner";
         diabled();
     
 }
+       else{
+           win_msg.innerText="Game Draw !";
 }
 
 }
