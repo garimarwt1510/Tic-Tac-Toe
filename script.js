@@ -69,10 +69,11 @@ for(let pattern of win){
 if(pos1 !="" && pos2 !="" && pos3 !=""){
     draw.classList.remove("hide");
 }
+
 reset.addEventListener('click',()=>{
     for(let box of boxes){
         box.disabled=false;
-        box.innerHTML="";
+        box.innerHTML=" ";
         msg.classList.add("hide");
     
     }
