@@ -2,10 +2,13 @@ let boxes = document.querySelectorAll(".btn");
 let chooseX=true;
 let win=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 let win_msg=document.querySelector("#win_msg");
+let draw_msg=document.querySelector("#draw_msg");
+let draw=document.querySelector(".draw");
 let msg=document.querySelector(".msg");
 let startbtn=document.querySelector("#start-btn");
 let start=document.querySelector("#start");
 let reset=document.querySelector("#reset");
+let pos1 ; let pos2 ; let pos3;
 
 let X= '<img id="X"; src="Images/X.png" style="width:30px; height:30px;">';
 startbtn.addEventListener('click',()=>{
@@ -49,19 +52,22 @@ for(let box of boxes){
 function winner() {
 for(let pattern of win){
     
-   let pos1=boxes[pattern[0]].innerHTML;
-   let pos2=boxes[pattern[1]].innerHTML;
-   let pos3=boxes[pattern[2]].innerHTML;
+   pos1=boxes[pattern[0]].innerHTML;
+   pos2=boxes[pattern[1]].innerHTML;
+    pos3=boxes[pattern[2]].innerHTML;
 
-   if(pos1 !="" && pos2 !=""&& pos3 !=""){
+   if(pos1 !="" && pos2 !="" && pos3 !=""){
     if(pos1==pos2 && pos2==pos3){
         msg.classList.remove("hide");
-        win_msg.innerText="Winner";
         diabled();
-    
     }
+}   
 
 }
+}
+
+if(pos1 !="" && pos2 !="" && pos3 !=""){
+    draw.classList.remove("hide");
 }
 reset.addEventListener('click',()=>{
     for(let box of boxes){
