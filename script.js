@@ -1,6 +1,6 @@
 let boxes = document.querySelectorAll(".btn");
 let chooseX=true;
-let win=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+let winPat=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
 let win_msg=document.querySelector("#win_msg");
 let draw_msg=document.querySelector("#draw_msg");
 let draw=document.querySelector(".draw");
@@ -8,73 +8,77 @@ let msg=document.querySelector(".msg");
 let startbtn=document.querySelector("#start-btn");
 let start=document.querySelector("#start");
 let reset=document.querySelector("#reset");
-let pos1 ; let pos2 ; let pos3;
+let pos1 ; let pos2 ; let pos3; 
+let win=false ;
+let count=0; 
 
-let X= '<img id="X"; src="Images/X.png" style="width:30px; height:30px;">';
+//start
 startbtn.addEventListener('click',()=>{
     start.innerHTML='<h5 style= "font-size: 40px ; color: #f95e34 ;" >Loading.......</h5>'
-    setTimeout(()=>{
-start.style.transiton="opacity 2s ease;";
-start.style.display="none";
+        setTimeout(()=>{
+          start.style.transiton="opacity 2s ease;";
+          start.style.display="none";
 
  },1000);
-}
-);
+});
 
+//disabled btn
+let diabled=()=>{
+    for(let box of boxes){
+        box.disabled=true;
+    }
+ }
 
 boxes.forEach((box)=>{
     box.addEventListener('click' ,()=>{
         if(chooseX==true){
-         box.innerText="X";
-        box.innerHTML='<img id="X"; src="Images/X.png" style="width:30px; height:30px;">';
-        box.style.boxShadow="1px 2px 10px rgb(224, 71, 28)";
-    chooseX=false;
+            box.innerText="X";
+            box.innerHTML='<img id="X"; src="Images/X.png" style="width:30px; height:30px;">';
+            box.style.boxShadow="1px 2px 10px rgb(224, 81, 41)";
+            chooseX=false;
         }
         else{
             box.innerText="O";
-             box.innerHTML='<img id="O"; src="Images/O.png" style="width:30px; height:30px; ">';
-            
+            box.innerHTML='<img id="O"; src="Images/O.png" style="width:30px; height:30px; ">';
             box.style.boxShadow="1px 2px 10px rgb(224, 71, 28)";
             chooseX=true;
         }
         box.disabled=true;
+        count++;
         winner();
+
+    if(count===9 && win==false){
+        draw.classList.remove('hide');
+
+    }
+        
     });
 });
 
-let diabled=()=>{
-for(let box of boxes){
-    box.disabled=true;
-}
-}
-
-
+//check winner
 function winner() {
-for(let pattern of win){
-    
-   pos1=boxes[pattern[0]].innerHTML;
-   pos2=boxes[pattern[1]].innerHTML;
+for(let pattern of winPat){
+    pos1=boxes[pattern[0]].innerHTML;
+    pos2=boxes[pattern[1]].innerHTML;
     pos3=boxes[pattern[2]].innerHTML;
 
    if(pos1 !="" && pos2 !="" && pos3 !=""){
     if(pos1==pos2 && pos2==pos3){
         msg.classList.remove("hide");
         diabled();
+        win=true;
+             }
+         }
     }
-}   
-
-}
 }
 
-if(pos1 !="" && pos2 !="" && pos3 !=""){
-    draw.classList.remove("hide");
-}
-
+//reset btn
 reset.addEventListener('click',()=>{
     for(let box of boxes){
         box.disabled=false;
-        box.innerHTML=" ";
+        box.innerHTML="";
         msg.classList.add("hide");
-    
-    }
+        draw.classList.add("hide");
+        box.style.boxShadow="none";
+     }
 });
